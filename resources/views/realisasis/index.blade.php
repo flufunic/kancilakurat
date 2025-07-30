@@ -6,7 +6,8 @@
     <title>Data Realisasi - KancilAkurat</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body style="background: lightgray">
+<body style="background: url('{{ secure_asset('storage/imigrasi.jpg') }}') no-repeat center center fixed; background-size: cover;">
+
 
 <!-- ✅ HEADER / NAVBAR -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">

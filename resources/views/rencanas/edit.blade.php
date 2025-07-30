@@ -6,7 +6,8 @@
     <title>Edit Rencana - SantriKoding.com</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body style="background: lightgray">
+<body style="background: url('{{ secure_asset('storage/imigrasi.jpg') }}') no-repeat center center fixed; background-size: cover;">
+
 
 <!-- ✅ HEADER / NAVBAR -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -56,7 +57,7 @@
                         </div>
 
                         <div class="form-group mb-3">
-                            <label class="font-weight-bold">Penarikan Dana Presisi</label>
+                            <label class="font-weight-bold">Penarikan Dana Per Seksi</label>
                             <input type="number" class="form-control @error('saldo_tahunan') is-invalid @enderror" name="saldo_tahunan" value="{{ old('saldo_tahunan', $rencana->saldo_tahunan) }}" placeholder="Masukkan Saldo Tahunan">
                             @error('saldo_tahunan')
                             <div class="alert alert-danger mt-2">

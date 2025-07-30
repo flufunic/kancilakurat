@@ -38,7 +38,7 @@
 <div class="container mt-5">
     <div class="row">
         <div class="col-md-12">
-            <h3 class="text-center my-4">Data Rencana Penarikan Dana Presisi</h3>
+            <h3 class="text-center my-4">Data Rencana Penarikan Dana Per Seksi</h3>
             <hr>
             <div class="card border-0 shadow-sm rounded">
                 <div class="card-body">
@@ -47,7 +47,7 @@
                         <thead>
                             <tr>
                                 <th>SEKSI/BAGIAN</th>
-                                <th>Penarikan Dana Presisi</th>
+                                <th>Penarikan Dana Per Seksi</th>
                                 <th>MINGGU 1</th>
                                 <th>MINGGU 2</th>
                                 <th>MINGGU 3</th>

@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('realisasis', function (Blueprint $table) {
             $table->id();
-             $table->string('nama_seksi');
-            $table->bigInteger('sisa_anggaran');
-            $table->text('link_spreadsheet'); 
+            $table->string('nama_seksi');
+            $table->string('sisa_anggaran');
+            $table->string('lihat_dokumen'); 
             $table->timestamps();
         });
     }

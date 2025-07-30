@@ -22,17 +22,15 @@
                     <a class="nav-link {{ request()->routeIs('dashboard') ? 'active' : '' }}" href="{{ route('dashboard') }}">Dashboard</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link {{ request()->routeIs('dipas.*') ? 'active' : '' }}" href="{{ route('dipas.index') }}">DIPA</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link {{ request()->routeIs('rencanas.*') ? 'active' : '' }}" href="{{ route('rencanas.index') }}">Rencana</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link {{ request()->routeIs('realisasis.*') ? 'active' : '' }}" href="{{ route('realisasis.index') }}">Realisasi</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link {{ request()->routeIs('strukturs.*') ? 'active' : '' }}" href="{{ route('strukturs.index') }}">Struktur</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link {{ request()->routeIs('dipas.*') ? 'active' : '' }}" href="{{ route('dipas.index') }}">DIPA</a>
-                </li>
+
             </ul>
         </div>
     </div>
@@ -51,9 +49,9 @@
                     <table class="table table-bordered">
                         <thead>
                         <tr>
-                            <th scope="col">NAMA SEKSI</th>
+                            <th scope="col">SEKSI/BAGIAN</th>
                             <th scope="col">SISA ANGGARAN</th>
-                            <th scope="col">LINK SPREADSHEET</th>
+                            <th scope="col">DOKUMEN</th>
                             <th scope="col" style="width: 20%">AKSI</th>
                         </tr>
                         </thead>
@@ -62,7 +60,11 @@
                             <tr>
                                 <td>{{ $realisasi->nama_seksi }}</td>
                                 <td>{{ "Rp " . number_format($realisasi->sisa_anggaran, 2, ',', '.') }}</td>
-                                <td><a href="{{ $realisasi->link_spreadsheet }}" target="_blank">Lihat Spreadsheet</a></td>
+                                <td>
+                                        <a href="{{ asset('storage/strukturs/' . $realisasi->lihat_dokumen) }}" target="_blank" class="btn btn-sm btn-secondary">
+                                            Lihat Dokumen
+                                        </a>
+                                    </td>
                                 <td class="text-center">
                                     <form onsubmit="return confirm('Apakah Anda yakin?');" action="{{ route('realisasis.destroy', $realisasi->id) }}" method="POST">
                                         <a href="{{ route('realisasis.edit', $realisasi->id) }}" class="btn btn-sm btn-primary">EDIT</a>

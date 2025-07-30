@@ -77,10 +77,10 @@
             <h1 class="mb-4">Selamat Datang di Halaman Admin <br><strong>KANCIL AKURAT</strong></h1>
 
             <div class="d-flex flex-wrap justify-content-center">
+                <a href="{{ route('dipas.index') }}" class="btn btn-danger btn-custom">DIPA</a>
                 <a href="{{ route('rencanas.index') }}" class="btn btn-primary btn-custom">Rencana</a>
                 <a href="{{ route('realisasis.index') }}" class="btn btn-success btn-custom">Realisasi</a>
-                <a href="{{ route('strukturs.index') }}" class="btn btn-warning btn-custom">Struktur</a>
-                <a href="{{ route('dipas.index') }}" class="btn btn-danger btn-custom">DIPA</a>
+                
             </div>
         </div>
     </div>

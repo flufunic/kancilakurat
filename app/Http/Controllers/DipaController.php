@@ -29,7 +29,7 @@ class DipaController extends Controller
         // Validasi
         $request->validate([
             'nama'      => 'required|string|max:255',
-            'file_pdf'  => 'required|mimes:pdf|max:5120', // maks 5MB
+            'file_pdf'  => 'required|mimes:pdf|max:102400', 
         ]);
 
         // Simpan file PDF ke folder 'public/dipas'
@@ -62,7 +62,7 @@ class DipaController extends Controller
     {
         $request->validate([
             'nama'      => 'required|string|max:255',
-            'file_pdf'  => 'nullable|mimes:pdf|max:2048',
+            'file_pdf'  => 'nullable|mimes:pdf|max:102400',
         ]);
 
         $dipa = Dipa::findOrFail($id);

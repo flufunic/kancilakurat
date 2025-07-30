@@ -33,15 +33,20 @@ class RealisasiController extends Controller
         // Validasi input
         $request->validate([
             'nama_seksi' => 'required|string|max:255',
-            'sisa_anggaran' => 'required|numeric',
-            'link_spreadsheet' => 'required|url'
+            'sisa_anggaran' =>'required|integer|min:0',
+            'lihat_dokumen' => 'nullable|file|mimes:pdf|max:102400'
+
         ]);
+
+         // Simpan file PDF ke folder 'public/dipas'
+        $file = $request->file('lihat_dokumen');
+        $file->storeAs('public/strukturs', $file->hashName());
 
         // Simpan data ke database
         Realisasi::create([
             'nama_seksi' => $request->nama_seksi,
             'sisa_anggaran' => $request->sisa_anggaran,
-            'link_spreadsheet' => $request->link_spreadsheet,
+            'lihat_dokumen' => $file->hashName(),
         ]);
 
         return redirect()->route('realisasis.index')->with('success', 'Data berhasil disimpan!');
@@ -71,21 +76,35 @@ public function update(Request $request, $id): RedirectResponse
     // Validasi form
     $request->validate([
         'nama_seksi' => 'required|string|max:255',
-        'sisa_anggaran' => 'required|numeric',
-        'link_spreadsheet' => 'required|url'
+        'sisa_anggaran' =>'required|integer|min:0',
+        'lihat_dokumen' => 'nullable|file|mimes:pdf|max:102400'
     ]);
 
     // Cari data realisasi
     $realisasi = Realisasi::findOrFail($id);
 
-    // Update data
-    $realisasi->update([
+    // Data yang akan diupdate
+    $data = [
         'nama_seksi' => $request->nama_seksi,
         'sisa_anggaran' => $request->sisa_anggaran,
-        'link_spreadsheet' => $request->link_spreadsheet,
-    ]);
+    ];
 
-    // Redirect dengan pesan sukses
+    // Jika ada file baru diupload
+    if ($request->hasFile('lihat_dokumen')) {
+        $file = $request->file('lihat_dokumen');
+        $fileName = $file->hashName();
+        $file->storeAs('public/strukturs', $fileName);
+
+        // Hapus file lama
+        Storage::delete('public/strukturs/' . $realisasi->lihat_dokumen);
+
+        // Tambahkan file baru ke data
+        $data['lihat_dokumen'] = $fileName;
+    }
+
+    // Update data
+    $realisasi->update($data);
+
     return redirect()->route('realisasis.index')->with(['success' => 'Data realisasi berhasil diperbarui.']);
 }
 

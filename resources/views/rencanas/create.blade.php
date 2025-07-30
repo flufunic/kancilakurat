@@ -21,17 +21,14 @@
                 <li class="nav-item">
                     <a class="nav-link {{ request()->routeIs('dashboard') ? 'active' : '' }}" href="{{ route('dashboard') }}">Dashboard</a>
                 </li>
+                 <li class="nav-item">
+                    <a class="nav-link {{ request()->routeIs('dipas.*') ? 'active' : '' }}" href="{{ route('dipas.index') }}">DIPA</a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link {{ request()->routeIs('rencanas.*') ? 'active' : '' }}" href="{{ route('rencanas.index') }}">Rencana</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link {{ request()->routeIs('realisasis.*') ? 'active' : '' }}" href="{{ route('realisasis.index') }}">Realisasi</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link {{ request()->routeIs('strukturs.*') ? 'active' : '' }}" href="{{ route('strukturs.index') }}">Struktur</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link {{ request()->routeIs('dipas.*') ? 'active' : '' }}" href="{{ route('dipas.index') }}">DIPA</a>
                 </li>
             </ul>
         </div>
@@ -48,7 +45,7 @@
                             @csrf
 
                             <div class="form-group mb-3">
-                                <label class="font-weight-bold">NAMA SEKSI</label>
+                                <label class="font-weight-bold">SEKSI/BAGIAN</label>
                                 <input type="text" class="form-control @error('nama_seksi') is-invalid @enderror" name="nama_seksi" value="{{ old('nama_seksi') }}" placeholder="Masukkan Nama Seksi">
                                 @error('nama_seksi')
                                     <div class="alert alert-danger mt-2">{{ $message }}</div>
@@ -56,7 +53,7 @@
                             </div>
 
                             <div class="form-group mb-3">
-                                <label class="font-weight-bold">SALDO TAHUNAN</label>
+                                <label class="font-weight-bold">PENARIKAN DANA PRESISI</label>
                                 <input type="number" class="form-control @error('saldo_tahunan') is-invalid @enderror" name="saldo_tahunan" value="{{ old('saldo_tahunan') }}" placeholder="Masukkan Saldo Tahunan">
                                 @error('saldo_tahunan')
                                     <div class="alert alert-danger mt-2">{{ $message }}</div>
@@ -78,7 +75,7 @@
                             </div>
 
                             <div class="form-group mb-3">
-                                <label class="font-weight-bold">SISA SALDO BULAN</label>
+                                <label class="font-weight-bold">SALDO</label>
                                 <input type="number" class="form-control @error('sisa_saldo_bulan') is-invalid @enderror" name="sisa_saldo_bulan" value="{{ old('sisa_saldo_bulan', 0) }}" placeholder="Masukkan Sisa Saldo Bulan">
                                 @error('sisa_saldo_bulan')
                                     <div class="alert alert-danger mt-2">{{ $message }}</div>

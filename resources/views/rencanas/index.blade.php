@@ -22,16 +22,13 @@
                     <a class="nav-link {{ request()->routeIs('dashboard') ? 'active' : '' }}" href="{{ route('dashboard') }}">Dashboard</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link {{ request()->routeIs('dipas.*') ? 'active' : '' }}" href="{{ route('dipas.index') }}">DIPA</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link {{ request()->routeIs('rencanas.*') ? 'active' : '' }}" href="{{ route('rencanas.index') }}">Rencana</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link {{ request()->routeIs('realisasis.*') ? 'active' : '' }}" href="{{ route('realisasis.index') }}">Realisasi</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link {{ request()->routeIs('strukturs.*') ? 'active' : '' }}" href="{{ route('strukturs.index') }}">Struktur</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link {{ request()->routeIs('dipas.*') ? 'active' : '' }}" href="{{ route('dipas.index') }}">DIPA</a>
                 </li>
             </ul>
         </div>
@@ -41,7 +38,7 @@
 <div class="container mt-5">
     <div class="row">
         <div class="col-md-12">
-            <h3 class="text-center my-4">Data Rencana Anggaran</h3>
+            <h3 class="text-center my-4">Data Rencana Penarikan Dana Presisi</h3>
             <hr>
             <div class="card border-0 shadow-sm rounded">
                 <div class="card-body">
@@ -49,13 +46,13 @@
                     <table class="table table-bordered">
                         <thead>
                             <tr>
-                                <th>NAMA SEKSI</th>
-                                <th>SALDO TAHUNAN</th>
+                                <th>SEKSI/BAGIAN</th>
+                                <th>Penarikan Dana Presisi</th>
                                 <th>MINGGU 1</th>
                                 <th>MINGGU 2</th>
                                 <th>MINGGU 3</th>
                                 <th>MINGGU 4</th>
-                                <th>SISA SALDO BULAN</th>
+                                <th>SALDO</th>
                                 <th>BULAN</th>
                                 <th style="width: 20%">AKSI</th>
                             </tr>

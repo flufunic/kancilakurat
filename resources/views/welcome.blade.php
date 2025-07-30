@@ -207,10 +207,10 @@
     </div>
 
     <div class="menu">
+         <button onclick="showSection('dipa')">DIPA</button>
         <button onclick="showSection('realisasi')">Realisasi</button>
         <button onclick="showSection('rencana')">Rencana</button>
-        <button onclick="showSection('struktur')">Struktur</button>
-        <button onclick="showSection('dipa')">DIPA</button>
+       
     </div>
 
     <main>
@@ -218,16 +218,15 @@
             <caption>Data Realisasi</caption>
             <thead>
                 <tr>
-                    <th>Nama Seksi</th>
+                    <th>Seksi/Bagian</th>
                     <th>Sisa Anggaran</th>
-                    <th>Spreadsheet</th>
+                    <th>Dokumen</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach ($realisasi as $item)
                     <tr>
                         <td>{{ $item->nama_seksi }}</td>
-                        <td>Rp{{ number_format($item->sisa_anggaran, 0, ',', '.') }}</td>
                         <td><a href="{{ $item->link_spreadsheet }}" target="_blank">Lihat</a></td>
                     </tr>
                 @endforeach
@@ -240,13 +239,13 @@
             
             <thead>
                 <tr>
-                    <th>Nama Seksi</th>
-                    <th>Saldo Tahunan</th>
+                    <th>Seksi/Bagian</th>
+                    <th>Penarikan Dana Presisi</th>
                     <th>Minggu 1</th>
                     <th>Minggu 2</th>
                     <th>Minggu 3</th>
                     <th>Minggu 4</th>
-                    <th>Sisa Saldo Bulan</th>
+                    <th>Saldo</th>
                     <th>
                        <a href="{{ route('kancil.index', ['sort' => request('sort') === 'asc' ? 'desc' : 'asc']) }}" style="color: inherit; text-decoration: none;">
                             Bulan
@@ -277,11 +276,6 @@
             </tbody>
         </table>
 
-        <div id="struktur" class="struktur-img">
-           @foreach ($struktur as $item)
-  <img src="{{ asset('storage/strukturs/' . $item->gambar) }}" alt="Struktur" width="200">
-@endforeach
-        </div>
 
         <div id="dipa" class="dipa-list">
             <h2>Data DIPA</h2>
@@ -298,7 +292,7 @@
     </footer>
 
     <script>
-        const sections = ['realisasi', 'rencana', 'struktur', 'dipa'];
+        const sections = ['realisasi', 'rencana', 'dipa'];
 
         function showSection(id) {
             sections.forEach(section => {

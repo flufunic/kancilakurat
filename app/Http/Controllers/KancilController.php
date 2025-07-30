@@ -27,10 +27,9 @@ class KancilController extends Controller
     }
 
     $realisasi = Realisasi::all();
-    $struktur = Struktur::all();
     $dipa = Dipa::all();
 
-    return view('welcome', compact('rencana', 'realisasi', 'struktur', 'dipa'));
+    return view('welcome', compact('rencana', 'realisasi', 'dipa'));
 }
 
     

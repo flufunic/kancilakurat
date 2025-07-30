@@ -22,16 +22,13 @@
                     <a class="nav-link {{ request()->routeIs('dashboard') ? 'active' : '' }}" href="{{ route('dashboard') }}">Dashboard</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link {{ request()->routeIs('dipas.*') ? 'active' : '' }}" href="{{ route('dipas.index') }}">DIPA</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link {{ request()->routeIs('rencanas.*') ? 'active' : '' }}" href="{{ route('rencanas.index') }}">Rencana</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link {{ request()->routeIs('realisasis.*') ? 'active' : '' }}" href="{{ route('realisasis.index') }}">Realisasi</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link {{ request()->routeIs('strukturs.*') ? 'active' : '' }}" href="{{ route('strukturs.index') }}">Struktur</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link {{ request()->routeIs('dipas.*') ? 'active' : '' }}" href="{{ route('dipas.index') }}">DIPA</a>
                 </li>
             </ul>
         </div>
@@ -48,7 +45,7 @@
                         @method('PUT')
 
                         <div class="form-group mb-3">
-                            <label class="font-weight-bold">Nama Seksi</label>
+                            <label class="font-weight-bold">Seksi/Bagian</label>
                             <input type="text" class="form-control @error('nama_seksi') is-invalid @enderror" name="nama_seksi" value="{{ old('nama_seksi', $realisasi->nama_seksi) }}" placeholder="Masukkan Nama Seksi">
 
                             @error('nama_seksi')
@@ -58,27 +55,35 @@
                             @enderror
                         </div>
 
-                        <div class="form-group mb-3">
+
+                          <div class="form-group mb-3">
                             <label class="font-weight-bold">Sisa Anggaran</label>
                             <input type="number" class="form-control @error('sisa_anggaran') is-invalid @enderror" name="sisa_anggaran" value="{{ old('sisa_anggaran', $realisasi->sisa_anggaran) }}" placeholder="Masukkan Sisa Anggaran">
-
                             @error('sisa_anggaran')
-                                <div class="alert alert-danger mt-2">
-                                    {{ $message }}
-                                </div>
+                            <div class="alert alert-danger mt-2">
+                                {{ $message }}
+                            </div>
                             @enderror
                         </div>
 
-                        <div class="form-group mb-3">
-                            <label class="font-weight-bold">Link Spreadsheet</label>
-                            <textarea class="form-control @error('link_spreadsheet') is-invalid @enderror" name="link_spreadsheet" rows="3" placeholder="Masukkan Link Spreadsheet">{{ old('link_spreadsheet', $realisasi->link_spreadsheet) }}</textarea>
 
-                            @error('link_spreadsheet')
-                                <div class="alert alert-danger mt-2">
-                                    {{ $message }}
-                                </div>
-                            @enderror
-                        </div>
+                       <div class="form-group mb-3">
+                                <label class="font-weight-bold">File PDF (Kosongkan jika tidak ingin mengubah)</label>
+                                <input type="file" class="form-control @error('lihat_dokumen') is-invalid @enderror" name="lihat_dokumen" accept="application/pdf">
+
+                                @error('lihat_dokumen')
+                                    <div class="alert alert-danger mt-2">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+
+                                @if ($realisasi->lihat_dokumen)
+                                    <p class="mt-2">
+                                        <strong>File Saat Ini:</strong> 
+                                        <a href="{{ asset('storage/strukturs/' . $realisasi->lihat_dokumen) }}" target="_blank">Lihat Dokumen</a>
+                                    </p>
+                                @endif
+                            </div>
 
                         <button type="submit" class="btn btn-md btn-primary me-3">UPDATE</button>
                         <button type="reset" class="btn btn-md btn-warning">RESET</button>

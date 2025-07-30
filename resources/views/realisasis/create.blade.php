@@ -23,16 +23,13 @@
                     <a class="nav-link {{ request()->routeIs('dashboard') ? 'active' : '' }}" href="{{ route('dashboard') }}">Dashboard</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link {{ request()->routeIs('dipas.*') ? 'active' : '' }}" href="{{ route('dipas.index') }}">DIPA</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link {{ request()->routeIs('rencanas.*') ? 'active' : '' }}" href="{{ route('rencanas.index') }}">Rencana</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link {{ request()->routeIs('realisasis.*') ? 'active' : '' }}" href="{{ route('realisasis.index') }}">Realisasi</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link {{ request()->routeIs('strukturs.*') ? 'active' : '' }}" href="{{ route('strukturs.index') }}">Struktur</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link {{ request()->routeIs('dipas.*') ? 'active' : '' }}" href="{{ route('dipas.index') }}">DIPA</a>
                 </li>
             </ul>
         </div>
@@ -44,11 +41,11 @@
             <div class="col-md-12">
                 <div class="card border-0 shadow-sm rounded">
                     <div class="card-body">
-                        <form action="{{ route('realisasis.store') }}" method="POST">
+                        <form action="{{ route('realisasis.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
 
                             <div class="form-group mb-3">
-                                <label class="font-weight-bold">NAMA SEKSI</label>
+                                <label class="font-weight-bold">SEKSI/BAGIAN</label>
                                 <input type="text" class="form-control @error('nama_seksi') is-invalid @enderror" name="nama_seksi" value="{{ old('nama_seksi') }}" placeholder="Masukkan Nama Seksi">
                                 @error('nama_seksi')
                                     <div class="alert alert-danger mt-2">
@@ -57,20 +54,21 @@
                                 @enderror
                             </div>
 
-                            <div class="form-group mb-3">
+                              <div class="form-group mb-3">
                                 <label class="font-weight-bold">SISA ANGGARAN</label>
                                 <input type="number" class="form-control @error('sisa_anggaran') is-invalid @enderror" name="sisa_anggaran" value="{{ old('sisa_anggaran') }}" placeholder="Masukkan Sisa Anggaran">
                                 @error('sisa_anggaran')
-                                    <div class="alert alert-danger mt-2">
-                                        {{ $message }}
-                                    </div>
+                                    <div class="alert alert-danger mt-2">{{ $message }}</div>
                                 @enderror
                             </div>
 
-                            <div class="form-group mb-3">
-                                <label class="font-weight-bold">LINK SPREADSHEET</label>
-                                <textarea class="form-control @error('link_spreadsheet') is-invalid @enderror" name="link_spreadsheet" rows="4" placeholder="Masukkan Link Spreadsheet">{{ old('link_spreadsheet') }}</textarea>
-                                @error('link_spreadsheet')
+
+
+                             <div class="form-group mb-3">
+                                <label class="font-weight-bold">UPLOAD FILE PDF</label>
+                                <input type="file" class="form-control @error('lihat_dokumen') is-invalid @enderror" name="lihat_dokumen" accept="application/pdf">
+
+                                @error('lihat_dokumen')
                                     <div class="alert alert-danger mt-2">
                                         {{ $message }}
                                     </div>

@@ -9,6 +9,8 @@ use App\Http\Controllers\StrukturController;
 use App\Http\Controllers\KancilController;
 
 Route::get('/', [KancilController::class, 'index']);
+Route::get('/', [KancilController::class, 'index'])->name('kancil.index');
+
 
 
 Route::get('/dashboard', function () {

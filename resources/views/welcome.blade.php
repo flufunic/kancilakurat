@@ -177,6 +177,12 @@
             border-radius: 8px;
         }
 
+        .link-as-text {
+            color: inherit;
+            text-decoration: none;
+        }
+
+
     </style>
 </head>
 <body>
@@ -228,8 +234,10 @@
             </tbody>
         </table>
 
+
         <table id="rencana">
             <caption>Data Rencana</caption>
+            
             <thead>
                 <tr>
                     <th>Nama Seksi</th>
@@ -239,7 +247,18 @@
                     <th>Minggu 3</th>
                     <th>Minggu 4</th>
                     <th>Sisa Saldo Bulan</th>
-                    <th>Bulan</th>
+                    <th>
+                       <a href="{{ route('kancil.index', ['sort' => request('sort') === 'asc' ? 'desc' : 'asc']) }}" style="color: inherit; text-decoration: none;">
+                            Bulan
+                            @if(request('sort') === 'asc')
+                                ↑
+                            @elseif(request('sort') === 'desc')
+                                ↓
+                            @endif
+                        </a>
+
+                    </th>
+
                 </tr>
             </thead>
             <tbody>

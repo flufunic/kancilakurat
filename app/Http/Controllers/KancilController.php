@@ -9,13 +9,29 @@ use Illuminate\Http\Request;
 
 class KancilController extends Controller
 {
-     public function index()
-    {
-        $realisasi = Realisasi::all();
-        $rencana = Rencana::all();
-        $struktur = Struktur::all();
-        $dipa = Dipa::all();
+    public function index(Request $request)
+{
+    $sort = $request->input('sort');
 
-        return view('welcome', compact('realisasi', 'rencana', 'struktur', 'dipa'));
+    $bulanUrutan = [
+        'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni',
+        'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'
+    ];
+
+    $rencana = Rencana::all()->sortBy(function ($item) use ($bulanUrutan) {
+        return array_search($item->bulan, $bulanUrutan);
+    });
+
+    if ($sort === 'desc') {
+        $rencana = $rencana->reverse();
     }
+
+    $realisasi = Realisasi::all();
+    $struktur = Struktur::all();
+    $dipa = Dipa::all();
+
+    return view('welcome', compact('rencana', 'realisasi', 'struktur', 'dipa'));
+}
+
+    
 }

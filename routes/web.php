@@ -12,6 +12,10 @@ Route::get('/', [KancilController::class, 'index']);
 Route::get('/', [KancilController::class, 'index'])->name('kancil.index');
 
 
+Route::get('/tes-img', function () {
+    return response()->file(storage_path('app/public/imigrasi.jpg'));
+});
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -27,6 +31,5 @@ require __DIR__.'/auth.php';
 
 Route::resource('/realisasis', \App\Http\Controllers\RealisasiController::class);
 Route::resource('/rencanas', \App\Http\Controllers\RencanaController::class);
-Route::resource('/strukturs', \App\Http\Controllers\StrukturController::class);
 Route::resource('/dipas', \App\Http\Controllers\DipaController::class);
 

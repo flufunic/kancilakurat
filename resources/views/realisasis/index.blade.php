@@ -10,7 +10,7 @@
         body {
             margin: 0;
             padding: 0;
-            background: url('{{ asset('storage/imigrasi.jpg') }}') no-repeat center center fixed;
+            background: url('{{secure_ asset('storage/imigrasi.jpg') }}') no-repeat center center fixed;
             background-size: cover;
             position: relative;
             min-height: 100vh;

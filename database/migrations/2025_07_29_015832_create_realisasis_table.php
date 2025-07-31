@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('nama_seksi');
             $table->string('sisa_anggaran');
-            $table->string('lihat_dokumen'); 
+            $table->string('link_dok'); 
             $table->timestamps();
         });
     }

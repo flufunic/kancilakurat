@@ -6,7 +6,16 @@
     <title>Edit Realisasi - SantriKoding.com</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body style="background: url('{{ secure_asset('storage/imigrasi.jpg') }}') no-repeat center center fixed; background-size: cover;">
+<body style="margin: 0; padding: 0; position: relative;">
+
+    <!-- Gambar background -->
+    <div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+                background: url('{{ secure_asset('storage/imigrasi.jpg') }}') no-repeat center center fixed;
+                background-size: cover; z-index: -2;"></div>
+
+    <!-- Overlay gelap transparan -->
+    <div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+                background-color: rgba(0, 0, 0, 0.5); z-index: -1;"></div>
 
 <!-- ✅ HEADER / NAVBAR -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -67,23 +76,23 @@
                         </div>
 
 
-                       <div class="form-group mb-3">
-                                <label class="font-weight-bold">File PDF (Kosongkan jika tidak ingin mengubah)</label>
-                                <input type="file" class="form-control @error('lihat_dokumen') is-invalid @enderror" name="lihat_dokumen" accept="application/pdf">
+                      <div class="form-group mb-3">
+                            <label class="font-weight-bold">Link Dokumen (Kosongkan jika tidak ingin mengubah)</label>
+                            <input type="url" class="form-control @error('link_dok') is-invalid @enderror" name="link_dok" placeholder="Masukkan link dokumen" value="{{ old('link_dok', $realisasi->link_dok ?? '') }}">
 
-                                @error('lihat_dokumen')
-                                    <div class="alert alert-danger mt-2">
-                                        {{ $message }}
-                                    </div>
-                                @enderror
+                            @error('link_dok')
+                                <div class="alert alert-danger mt-2">
+                                    {{ $message }}
+                                </div>
+                            @enderror
 
-                                @if ($realisasi->lihat_dokumen)
-                                    <p class="mt-2">
-                                        <strong>File Saat Ini:</strong> 
-                                        <a href="{{ asset('storage/strukturs/' . $realisasi->lihat_dokumen) }}" target="_blank">Lihat Dokumen</a>
-                                    </p>
-                                @endif
-                            </div>
+                            @if (!empty($realisasi->link_dok))
+                                <p class="mt-2">
+                                    <strong>Link Saat Ini:</strong> 
+                                    <a href="{{ $realisasi->link_dok }}" target="_blank">Lihat Dokumen</a>
+                                </p>
+                            @endif
+                        </div>
 
                         <button type="submit" class="btn btn-md btn-primary me-3">UPDATE</button>
                         <button type="reset" class="btn btn-md btn-warning">RESET</button>

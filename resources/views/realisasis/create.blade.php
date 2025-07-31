@@ -7,7 +7,16 @@
     <title>Tambah Realisasi - SantriKoding.com</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body style="background: url('{{ secure_asset('storage/imigrasi.jpg') }}') no-repeat center center fixed; background-size: cover;">
+<body style="margin: 0; padding: 0; position: relative;">
+
+    <!-- Gambar background -->
+    <div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+                background: url('{{ secure_asset('storage/imigrasi.jpg') }}') no-repeat center center fixed;
+                background-size: cover; z-index: -2;"></div>
+
+    <!-- Overlay gelap transparan -->
+    <div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+                background-color: rgba(0, 0, 0, 0.5); z-index: -1;"></div>
 
 
 <!-- ✅ HEADER / NAVBAR -->
@@ -64,17 +73,17 @@
                             </div>
 
 
+                            <div class="form-group mb-3">
+                                <label class="font-weight-bold">LINK DOKUMEN</label>
+                                <input type="url" class="form-control @error('link_dok') is-invalid @enderror" name="link_dok" placeholder="Masukkan link Google Drive, Excel Online, dll" value="{{ old('link_dok', isset($realisasi) ? $realisasi->link_dok : '') }}">
 
-                             <div class="form-group mb-3">
-                                <label class="font-weight-bold">UPLOAD FILE PDF</label>
-                                <input type="file" class="form-control @error('lihat_dokumen') is-invalid @enderror" name="lihat_dokumen" accept="application/pdf">
-
-                                @error('lihat_dokumen')
+                                @error('link_dok')
                                     <div class="alert alert-danger mt-2">
                                         {{ $message }}
                                     </div>
                                 @enderror
                             </div>
+
 
                             <button type="submit" class="btn btn-md btn-primary me-3">SIMPAN</button>
                             <button type="reset" class="btn btn-md btn-warning">RESET</button>

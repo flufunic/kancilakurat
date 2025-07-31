@@ -71,8 +71,8 @@
                                 <td>{{ $realisasi->nama_seksi }}</td>
                                 <td>{{ "Rp " . number_format($realisasi->sisa_anggaran, 2, ',', '.') }}</td>
                                <td>
-                                    @if($realisasi->link_dok)
-                                        <a href="{{ $realisasi->link_dok }}" target="_blank" class="btn btn-sm btn-secondary">
+                                    @if($realisasi->link_spreadsheet)
+                                        <a href="{{ $realisasi->link_spreadsheet }}" target="_blank" class="btn btn-sm btn-secondary">
                                             Lihat Dokumen
                                         </a>
                                     @else

@@ -26,14 +26,14 @@ class RealisasiController extends Controller
         $request->validate([
             'nama_seksi' => 'required|string|max:255',
             'sisa_anggaran' => 'required|integer|min:0',
-            'link_dok' => 'nullable|url|max:255'
+            'link_spreadsheet' => 'nullable|url|max:255'
         ]);
 
         // Simpan data ke database
         Realisasi::create([
             'nama_seksi' => $request->nama_seksi,
             'sisa_anggaran' => $request->sisa_anggaran,
-            'link_dok' => $request->link_dok,
+            'link_spreadsheet' => $request->link_spreadsheet,
         ]);
 
         return redirect()->route('realisasis.index')->with('success', 'Data berhasil disimpan!');
@@ -51,7 +51,7 @@ class RealisasiController extends Controller
         $request->validate([
             'nama_seksi' => 'required|string|max:255',
             'sisa_anggaran' => 'required|integer|min:0',
-            'link_dok' => 'nullable|url|max:255'
+            'link_spreadsheet' => 'nullable|url|max:255'
         ]);
 
         // Cari data realisasi
@@ -61,7 +61,7 @@ class RealisasiController extends Controller
         $realisasi->update([
             'nama_seksi' => $request->nama_seksi,
             'sisa_anggaran' => $request->sisa_anggaran,
-            'link_dok' => $request->link_dok,
+            'link_spreadsheet' => $request->link_spreadsheet,
         ]);
 
         return redirect()->route('realisasis.index')->with(['success' => 'Data realisasi berhasil diperbarui.']);

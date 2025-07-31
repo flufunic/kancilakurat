@@ -17,6 +17,6 @@ class Realisasi extends Model
     protected $fillable = [
         'nama_seksi',
         'sisa_anggaran',
-        'link_dok',
+        'link_spreadsheet',
     ];
 }

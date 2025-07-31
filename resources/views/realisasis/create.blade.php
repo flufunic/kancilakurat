@@ -75,9 +75,9 @@
 
                             <div class="form-group mb-3">
                                 <label class="font-weight-bold">LINK DOKUMEN</label>
-                                <input type="url" class="form-control @error('link_dok') is-invalid @enderror" name="link_dok" placeholder="Masukkan link Google Drive, Excel Online, dll" value="{{ old('link_dok', isset($realisasi) ? $realisasi->link_dok : '') }}">
+                                <input type="url" class="form-control @error('link_spreadsheet') is-invalid @enderror" name="link_spreadsheet" placeholder="Masukkan link Google Drive, Excel Online, dll" value="{{ old('link_spreadsheet', isset($realisasi) ? $realisasi->link_spreadsheet : '') }}">
 
-                                @error('link_dok')
+                                @error('link_spreadsheet')
                                     <div class="alert alert-danger mt-2">
                                         {{ $message }}
                                     </div>

@@ -78,18 +78,18 @@
 
                       <div class="form-group mb-3">
                             <label class="font-weight-bold">Link Dokumen (Kosongkan jika tidak ingin mengubah)</label>
-                            <input type="url" class="form-control @error('link_dok') is-invalid @enderror" name="link_dok" placeholder="Masukkan link dokumen" value="{{ old('link_dok', $realisasi->link_dok ?? '') }}">
+                            <input type="url" class="form-control @error('link_spreadsheet') is-invalid @enderror" name="link_spreadsheet" placeholder="Masukkan link dokumen" value="{{ old('link_spreadsheet', $realisasi->link_spreadsheet ?? '') }}">
 
-                            @error('link_dok')
+                            @error('link_spreadsheet')
                                 <div class="alert alert-danger mt-2">
                                     {{ $message }}
                                 </div>
                             @enderror
 
-                            @if (!empty($realisasi->link_dok))
+                            @if (!empty($realisasi->link_spreadsheet))
                                 <p class="mt-2">
                                     <strong>Link Saat Ini:</strong> 
-                                    <a href="{{ $realisasi->link_dok }}" target="_blank">Lihat Dokumen</a>
+                                    <a href="{{ $realisasi->link_spreadsheet }}" target="_blank">Lihat Dokumen</a>
                                 </p>
                             @endif
                         </div>

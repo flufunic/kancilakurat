@@ -6,43 +6,6 @@
     <title>Data Realisasi - KancilAkurat</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-
-<style>
-    .pagination {
-        display: flex;
-        justify-content: center;
-        padding-left: 0;
-        list-style: none;
-        border-radius: 0.25rem;
-    }
-
-    .pagination li {
-        display: inline;
-    }
-
-    .pagination li a,
-    .pagination li span {
-        position: relative;
-        display: block;
-        padding: 0.4rem 0.75rem;
-        margin-left: -1px;
-        line-height: 1.25;
-        color: #0d6efd;
-        background-color: #fff;
-        border: 1px solid #dee2e6;
-        text-decoration: none;
-        font-size: 0.875rem;
-        border-radius: 0.25rem;
-    }
-
-    .pagination li.active span {
-        z-index: 3;
-        color: #fff;
-        background-color: #0d6efd;
-        border-color: #0d6efd;
-    }
-</style>
-
 <body style="margin: 0; padding: 0; position: relative;">
 
     <!-- Gambar background -->
@@ -137,8 +100,7 @@
                         @endforelse
                         </tbody>
                     </table>
-                   {{ $realisasis->appends(request()->query())->links('vendor.pagination.bootstrap-5') }}
-
+                    {{ $realisasis->links() }}
                 </div>
             </div>
         </div>

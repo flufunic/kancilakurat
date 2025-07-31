@@ -100,7 +100,7 @@
                         @endforelse
                         </tbody>
                     </table>
-                    {{ $realisasis->links() }}
+                    {{ $realisasis->onEachSide(1)->links('vendor.pagination.simple-bootstrap-5') }}
                 </div>
             </div>
         </div>

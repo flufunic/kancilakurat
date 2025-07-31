@@ -220,14 +220,14 @@
                 <tr>
                     <th>Seksi/Bagian</th>
                     <th>Sisa Anggaran</th>
-                    <th>Dokumen</th>
+                    <th>Link Dokumen</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach ($realisasi as $item)
                     <tr>
                         <td>{{ $item->nama_seksi }}</td>
-                        <td><a href="{{ $item->link_spreadsheet }}" target="_blank">Lihat</a></td>
+                        <td><a href="{{ $item->link_dok }}" target="_blank">Lihat</a></td>
                     </tr>
                 @endforeach
             </tbody>

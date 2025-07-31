@@ -266,10 +266,10 @@
                     <tr>
                         <td>{{ $item->nama_seksi }}</td>
                         <td>Rp{{ number_format($item->saldo_tahunan, 0, ',', '.') }}</td>
-                        <td>{{ $item->minggu_1 }}</td>
-                        <td>{{ $item->minggu_2 }}</td>
-                        <td>{{ $item->minggu_3 }}</td>
-                        <td>{{ $item->minggu_4 }}</td>
+                        <td>{{ "Rp " . number_format($item->minggu_1, 2, ',', '.') }}</td>
+                        <td>{{ "Rp " . number_format($item->minggu_2, 2, ',', '.') }}</td>
+                        <td>{{ "Rp " . number_format($item->minggu_3, 2, ',', '.') }}</td>
+                        <td>{{ "Rp " . number_format($item->minggu_4, 2, ',', '.') }}</td>
                         <td>{{ $item->sisa_saldo_bulan }}</td>
                         <td>{{ $item->bulan }}</td>
                     </tr>

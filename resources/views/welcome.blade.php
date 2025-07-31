@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>KANCIL AKURAT</title>
-    <link rel="shortcut icon" href="{{ secure_asset('storage/logo.png') }}" type="image/png">
+    <link rel="shortcut icon" href="{{ asset('storage/logo.png') }}" type="image/png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <style>
         * { box-sizing: border-box; }
@@ -184,7 +184,7 @@
 
         .header {
             background: linear-gradient(to right, #0f2027cc, #203a43cc, #2c5364cc), 
-                        url('{{ secure_asset('storage/imigrasi.jpg') }}') no-repeat center center;
+                        url('{{ asset('storage/imigrasi.jpg') }}') no-repeat center center;
             background-size: cover;
             color: white;
             position: relative;

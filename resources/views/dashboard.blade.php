@@ -9,6 +9,13 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
+        body {
+            background: url('{{ secure_asset('storage/imigrasi.jpg') }}') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            min-height: 100vh;
+        }
+
         .overlay {
             background-color: rgba(0, 0, 0, 0.5); 
             padding: 60px 30px;
@@ -27,7 +34,7 @@
         }
     </style>
 </head>
-<body style="background: url('{{ secure_asset('storage/imigrasi.jpg') }}') no-repeat center center fixed; background-size: cover; color: white; min-height: 100vh;">
+<body>
 
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom px-4">

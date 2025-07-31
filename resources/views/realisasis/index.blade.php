@@ -5,23 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Data Realisasi - KancilAkurat</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: url('{{ secure_asset('storage/imigrasi.jpg') }}') no-repeat center center fixed;
+            background-size: cover;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Overlay hitam */
+            z-index: -1;
+        }
+
+        .text-white {
+            color: white !important;
+        }
+    </style>
 </head>
-<body style="margin: 0; padding: 0; position: relative;">
-
-    <!-- Gambar background -->
-    <div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-                background: url('{{ secure_asset('storage/imigrasi.jpg') }}') no-repeat center center fixed;
-                background-size: cover; z-index: -2;"></div>
-
-    <!-- Overlay gelap transparan -->
-    <div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-                background-color: rgba(0, 0, 0, 0.5); z-index: -1;"></div>
-
+<body>
 
 <!-- ✅ HEADER / NAVBAR -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-        <a class="navbar-brand fw-bold" href="{{ route('dashboard') }}">KancilAkurat</a>
+        <a class="navbar-brand fw-bold" href="{{ route('dashboard') }}">Kancil Akurat</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -40,7 +55,6 @@
                 <li class="nav-item">
                     <a class="nav-link {{ request()->routeIs('realisasis.*') ? 'active' : '' }}" href="{{ route('realisasis.index') }}">Realisasi</a>
                 </li>
-
             </ul>
         </div>
     </div>
@@ -49,10 +63,9 @@
 <div class="container mt-5">
     <div class="row">
         <div class="col-md-12">
-            <div>
-                <h3 class="text-center my-4 fw-bold text-white" style="font-size: 2rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">Data Realisasi Anggaran</h3>
-                <hr>
-            </div>
+            <h3 class="text-center my-4 fw-bold text-white" style="font-size: 2rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">
+                Data Realisasi Anggaran</h3>
+            <hr>
             <div class="card border-0 shadow-sm rounded">
                 <div class="card-body">
                     <a href="{{ route('realisasis.create') }}" class="btn btn-md btn-success mb-3">TAMBAH DATA</a>
@@ -70,7 +83,7 @@
                             <tr>
                                 <td>{{ $realisasi->nama_seksi }}</td>
                                 <td>{{ "Rp " . number_format($realisasi->sisa_anggaran, 2, ',', '.') }}</td>
-                               <td>
+                                <td>
                                     @if($realisasi->link_spreadsheet)
                                         <a href="{{ $realisasi->link_spreadsheet }}" target="_blank" class="btn btn-sm btn-secondary">
                                             Lihat Dokumen
@@ -79,7 +92,6 @@
                                         <span class="text-muted">Tidak ada link</span>
                                     @endif
                                 </td>
-
                                 <td class="text-center">
                                     <form onsubmit="return confirm('Apakah Anda yakin?');" action="{{ route('realisasis.destroy', $realisasi->id) }}" method="POST">
                                         <a href="{{ route('realisasis.edit', $realisasi->id) }}" class="btn btn-sm btn-primary">EDIT</a>
@@ -100,7 +112,7 @@
                         @endforelse
                         </tbody>
                     </table>
-                   {{ $realisasis->links('vendor.pagination.bootstrap-4') }}
+                    {{ $realisasis->links('vendor.pagination.bootstrap-4') }}
                 </div>
             </div>
         </div>
@@ -111,7 +123,6 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 @if(session('success'))
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         Swal.fire({
             icon: "success",
@@ -122,19 +133,16 @@
         });
     </script>
 @elseif(session('error'))
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         Swal.fire({
             icon: "error",
             title: "GAGAL!",
-             text: "{{ session('error') }}",
+            text: "{{ session('error') }}",
             showConfirmButton: false,
             timer: 2000
         });
     </script>
 @endif
-
-
 
 </body>
 </html>

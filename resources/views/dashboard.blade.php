@@ -78,8 +78,8 @@
 
             <div class="d-flex flex-wrap justify-content-center">
                 <a href="{{ route('dipas.index') }}" class="btn btn-danger btn-custom">DIPA</a>
-                <a href="{{ route('rencanas.index') }}" class="btn btn-primary btn-custom">Rencana</a>
-                <a href="{{ route('realisasis.index') }}" class="btn btn-success btn-custom">Realisasi</a>
+                <a href="{{ route('rencanas.index') }}" class="btn btn-primary btn-custom">RENCANA</a>
+                <a href="{{ route('realisasis.index') }}" class="btn btn-success btn-custom">REALISASI</a>
             </div>
         </div>
     </div>

@@ -223,7 +223,7 @@
 
     <main>
         <table id="realisasi">
-            <caption>Data Realisasi</caption>
+            <caption>DATA REALISASI</caption>
             <thead>
                 <tr>
                     <th>Seksi/Bagian</th>
@@ -244,7 +244,7 @@
 
 
         <table id="rencana">
-            <caption>Data Rencana</caption>
+            <caption>DATA RENCANA</caption>
             
             <thead>
                 <tr>
@@ -287,7 +287,7 @@
 
 
         <div id="dipa" class="dipa-list">
-            <h2>Data DIPA</h2>
+            <h2>DATA DIPA</h2>
             <ul>
                 @foreach($dipa as $item)
                     <li>{{ $item->nama }} – <a href="{{ secure_asset('storage/dipas/' . $item->file_pdf) }}" target="_blank">Lihat PDF</a></li>

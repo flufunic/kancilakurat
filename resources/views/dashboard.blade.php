@@ -8,31 +8,26 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <style>
-        body {
-            background-image: url({{ secure_asset('storage/imigrasi.jpg') }});
-            background-size: cover;
-            background-position: center;
-            min-height: 100vh;
-            color: white;
-        }
+    <body style="background: url('{{ secure_asset('storage/imigrasi.jpg') }}') no-repeat center center fixed; background-size: cover; color: white; min-height: 100vh;">
+<style>
+    .overlay {
+        background-color: rgba(0, 0, 0, 0.5); 
+        padding: 60px 30px;
+        border-radius: 12px;
+    }
 
-        .overlay {
-            background-color: rgba(0, 0, 0, 0.5); 
-            padding: 60px 30px;
-            border-radius: 12px;
-        }
+    .btn-custom {
+        width: 180px;
+        margin: 10px;
+    }
 
-        .btn-custom {
-            width: 180px;
-            margin: 10px;
-        }
+    nav {
+        background-color: rgba(255, 255, 255, 0.8); /* transparan */
+        backdrop-filter: blur(4px);
+        border-bottom: 1px solid #e2e8f0;
+    }
+</style>
 
-        nav {
-            background-color: white;
-            border-bottom: 1px solid #e2e8f0;
-        }
-    </style>
 </head>
 <body>
 

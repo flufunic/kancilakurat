@@ -10,7 +10,7 @@
 
     <!-- Gambar background -->
     <div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-                background: url('{{ secure_asset('storage/imigrasi.jpg') }}') no-repeat center center fixed;
+                background: url('{{ asset('images/imigrasi.jpg') }}') no-repeat center center fixed;
                 background-size: cover; z-index: -2;"></div>
 
     <!-- Overlay gelap transparan -->

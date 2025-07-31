@@ -89,7 +89,7 @@
                         </tbody>
                     </table>
 
-                    {{ $dipas->links() }}
+                  {{ $dipas->links('vendor.pagination.bootstrap-4') }}
                 </div>
             </div>
         </div>

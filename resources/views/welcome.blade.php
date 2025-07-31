@@ -227,7 +227,7 @@
                 @foreach ($realisasi as $item)
                     <tr>
                         <td>{{ $item->nama_seksi }}</td>
-                         <td>{{ $item->sisa_anggaran }}</td>
+                        <td>{{ "Rp " . number_format($item->sisa_anggaran, 2, ',', '.') }}</td>
                         <td><a href="{{ $item->link_spreadsheet }}" target="_blank">Lihat</a></td>
                     </tr>
                 @endforeach

@@ -270,7 +270,7 @@
                         <td>{{ "Rp " . number_format($item->minggu_2, 2, ',', '.') }}</td>
                         <td>{{ "Rp " . number_format($item->minggu_3, 2, ',', '.') }}</td>
                         <td>{{ "Rp " . number_format($item->minggu_4, 2, ',', '.') }}</td>
-                        <td>{{ $item->sisa_saldo_bulan }}</td>
+                        <td>{{ "Rp " . number_format($item->sisa_saldo_bulan, 2, ',', '.') }}</td>
                         <td>{{ $item->bulan }}</td>
                     </tr>
                 @endforeach

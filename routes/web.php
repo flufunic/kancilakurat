@@ -8,6 +8,7 @@ use App\Http\Controllers\DipaController;
 use App\Http\Controllers\StrukturController;
 use App\Http\Controllers\KancilController;
 
+
 Route::get('/', [KancilController::class, 'index']);
 Route::get('/', [KancilController::class, 'index'])->name('kancil.index');
 

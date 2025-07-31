@@ -80,7 +80,7 @@
                                 @if ($dipa->file_pdf)
                                     <p class="mt-2">
                                         <strong>File Saat Ini:</strong> 
-                                        <a href="{{ asset('storage/dipas/' . $dipa->file_pdf) }}" target="_blank">Lihat PDF</a>
+                                        <a href="{{ secure_asset('storage/dipas/' . $dipa->file_pdf) }}" target="_blank">Lihat PDF</a>
                                     </p>
                                 @endif
                             </div>

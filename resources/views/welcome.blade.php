@@ -282,7 +282,7 @@
             <h2>Data DIPA</h2>
             <ul>
                 @foreach($dipa as $item)
-                    <li>{{ $item->nama }} – <a href="{{ asset('storage/dipas/' . $item->file_pdf) }}" target="_blank">Lihat PDF</a></li>
+                    <li>{{ $item->nama }} – <a href="{{ secure_asset('storage/dipas/' . $item->file_pdf) }}" target="_blank">Lihat PDF</a></li>
                 @endforeach
             </ul>
         </div>

@@ -68,7 +68,7 @@
                                 <tr>
                                     <td>{{ $dipa->nama }}</td>
                                     <td>
-                                        <a href="{{ asset('storage/dipas/' . $dipa->file_pdf) }}" target="_blank" class="btn btn-sm btn-secondary">
+                                        <a href="{{ secure_asset('storage/dipas/' . $dipa->file_pdf) }}" target="_blank" class="btn btn-sm btn-secondary">
                                             Lihat PDF
                                         </a>
                                     </td>

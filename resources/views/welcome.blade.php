@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>KANCIL AKURAT</title>
-    <link rel="shortcut icon" href="{{ asset('/storage/image/favicon.png') }}" type="image/png">
+    <link rel="shortcut icon" href="{{ secure_asset('/storage//logo.png') }}" type="image/png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <style>
         * { box-sizing: border-box; }
@@ -188,7 +188,7 @@
 <body>
 
     <div class="header">
-        <img src="{{ asset('/storage/imigrasi.jpg') }}" alt="Header Background">
+        <img src="{{ secure_asset('/storage/imigrasi.jpg') }}" alt="Header Background">
         <div class="headline">
             <br>
             <br>

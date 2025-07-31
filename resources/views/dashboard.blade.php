@@ -10,7 +10,7 @@
 
     <style>
         body {
-            background-image: url('{{ asset('storage/imigrasi.jpg') }}');
+            background-image: url('{{ secure_asset('storage/imigrasi.jpg') }}');
             background-size: cover;
             background-position: center;
             min-height: 100vh;

@@ -184,7 +184,7 @@
 
         .header {
             background: linear-gradient(to right, #0f2027cc, #203a43cc, #2c5364cc), 
-                        url('{{ secure_asset('storage/imigrasi.jpg') }}') no-repeat center center;
+                        url('{{ secure_asset('storage/public/imigrasi.jpg') }}') no-repeat center center;
             background-size: cover;
             color: white;
             position: relative;
